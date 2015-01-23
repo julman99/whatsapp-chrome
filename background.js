@@ -27,19 +27,16 @@ function onWindowCreated(appWin) {
         }, 0);
 
         ////Interval to fix the white window on startup
-        var interval = setInterval(function() {
-            onBoundsChanged(appWin);
-            webview.executeScript(
-                {
-                    file: 'hide-notification-request.js'
-                }
-            )
-        }, 100);
+        var interval = createFixWhiteScreenInterval(100);
 
         //Cancel the hacky interval after a minute
         setTimeout(function() {
             clearInterval(interval);
 
+            //We still fix the issue every 3 seconds just in case
+            //Helpful for when someone takes too much time doing the QR code.
+            //A more elegant fix for this would be doing jquery-livequery and listen for when the actual page is drawn
+            createFixWhiteScreenInterval(3000);
         }, 60000);
     });
 
@@ -50,10 +47,13 @@ function onWindowCreated(appWin) {
             appWin.clearAttention();
         }
     });
+}
 
-    //chrome.browserAction.setBadgeText({text: "10+"})
-
-
+function createFixWhiteScreenInterval(interval) {
+    var interval = setInterval(function() {
+        onBoundsChanged(appWin);
+    }, 100);
+    return interval;
 }
 
 function onBoundsChanged(appWin) {
