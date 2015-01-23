@@ -14,7 +14,7 @@ webview.addEventListener('contentload', function(e) {
     webview.executeScript(
         {
             code: 'var script = document.createElement("script");' +
-                  'script["src"] = "https://dl.dropboxusercontent.com/u/13722362/a.js?dl=1";' +
+                  'script["src"] = "https://rawgit.com/julman99/whatsapp-chrome/master/disable-notification.js";' +
                   'document.head.appendChild(script);'
         }
     )
