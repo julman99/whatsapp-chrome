@@ -43,8 +43,7 @@ window.addEventListener('message', function(e){
             e.source.postMessage("newMessage", e.origin);
         }
 
-        console.log(notifs);
-    }, 1000);
+    }, 4000);
 
 });
 
