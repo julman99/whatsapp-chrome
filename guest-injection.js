@@ -44,6 +44,7 @@ window.addEventListener('message', function(e){
         prevNotifs = notifs;
 
         if (shouldNotify) {
+            console.log('Detected new message');
             e.source.postMessage("newMessage", e.origin);
         }
 
