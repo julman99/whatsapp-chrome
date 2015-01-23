@@ -27,7 +27,7 @@ function onWindowCreated(appWin) {
         }, 0);
 
         ////Interval to fix the white window on startup
-        var interval = createFixWhiteScreenInterval(100);
+        var interval = createFixWhiteScreenInterval(100, appWin);
 
         //Cancel the hacky interval after a minute
         setTimeout(function() {
@@ -36,7 +36,7 @@ function onWindowCreated(appWin) {
             //We still fix the issue every 3 seconds just in case
             //Helpful for when someone takes too much time doing the QR code.
             //A more elegant fix for this would be doing jquery-livequery and listen for when the actual page is drawn
-            createFixWhiteScreenInterval(3000);
+            createFixWhiteScreenInterval(3000, appWin);
         }, 60000);
     });
 
@@ -49,10 +49,10 @@ function onWindowCreated(appWin) {
     });
 }
 
-function createFixWhiteScreenInterval(interval) {
+function createFixWhiteScreenInterval(intervalms, appWin) {
     var interval = setInterval(function() {
         onBoundsChanged(appWin);
-    }, 100);
+    }, intervalms);
     return interval;
 }
 
