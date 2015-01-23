@@ -32,6 +32,6 @@ webview.addEventListener('contentload', function(e) {
     );
 });
 
-var intervalMessagesPoll = setInterval(function() {
-    onBoundsChanged(appWin);
-}, 1000);
+webview.addEventListener('newwindow', function(e) {
+    window.open(e.targetUrl,'_blank');
+});
