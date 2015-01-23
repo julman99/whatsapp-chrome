@@ -34,16 +34,13 @@ function onWindowCreated(appWin) {
                     file: 'hide-notification-request.js'
                 }
             )
-        }, 10);
+        }, 100);
 
         //Cancel the hacky interval after a minute
         setTimeout(function() {
             clearInterval(interval);
 
         }, 60000);
-
-
-
     });
 
     appWin.contentWindow.addEventListener('message', function(e) {
