@@ -13,18 +13,17 @@ chrome.app.runtime.onLaunched.addListener(function() {
 
 function onWindowCreated(appWin) {
 
+    // Initialize the webview size once on launch.
+    setTimeout(function() {
+        onBoundsChanged(appWin);
+    }, 0);
+
     appWin.contentWindow.addEventListener('load', function(){
 
         var webview = appWin.contentWindow.document.querySelector('webview');
 
         // Resize the webview when the window resizes.
         appWin.onBoundsChanged.addListener(function(){onBoundsChanged(appWin)});
-
-
-        // Initialize the webview size once on launch.
-        setTimeout(function() {
-            onBoundsChanged(appWin);
-        }, 0);
 
         ////Interval to fix the white window on startup
         var interval = createFixWhiteScreenInterval(100, appWin);
