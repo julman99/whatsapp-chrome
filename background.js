@@ -46,6 +46,8 @@ function onWindowCreated(appWin) {
     appWin.contentWindow.addEventListener('message', function(e) {
         if (!appWin.contentWindow.document.hasFocus()) {
             appWin.drawAttention();
+        } else {
+            appWin.clearAttention();
         }
     });
 
