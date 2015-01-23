@@ -1,6 +1,6 @@
 {
-  "name": "WhatsApp for Chrome",
-  "description": "WhatsApp for Chrome",
+  "name": "WhatsApp",
+  "description": "Enjoy your WhatsApp exprience as a Chrome App",
   "version": "0.1",
   "manifest_version": 2,
   "app": {
@@ -11,7 +11,10 @@
   "icons": { "128": "icon.png" },
   "permissions": [
     "webview",
-    "notifications"
+    "notifications",
+    "videoCapture",
+    "audioCapture",
+    "fileSystem"
   ],
   "webview": {
     "partitions": [

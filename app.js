@@ -22,7 +22,7 @@ webview.addEventListener('contentload', function(e) {
 
     webview.executeScript(
         {
-            file: 'poll-notifications.js'
+            file: 'guest-injection.js'
         }
     )
 
