@@ -46,7 +46,7 @@ console.log('Loaded Notification trapper');
     window.Notification.permission="granted";
 
     window.Notification.requestPermission = function (e) {
-        console.log('req per');
+        console.log('Requested notification permission');
     }
 
     function forwardNotif(a, b, id) {
