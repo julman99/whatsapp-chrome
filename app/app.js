@@ -14,7 +14,7 @@
         webview.executeScript(
             {
                 code: 'var script = document.createElement("script");' +
-                'script["src"] = "https://rawgit.com/julman99/whatsapp-chrome/0951df0/guest/trap-notification.js";' +
+                'script["src"] = "https://rawgit.com/julman99/whatsapp-chrome/22ae8cf/guest/trap-notification.js";' +
                 'document.head.appendChild(script);'
             }
         )
