@@ -11,13 +11,19 @@
     webview.addEventListener('contentload', function (e) {
         console.log('Starting poller');
 
-        webview.executeScript(
-            {
-                code: 'var script = document.createElement("script");' +
-                'script["src"] = "https://rawgit.com/julman99/whatsapp-chrome/1323983/guest/trap-notification.js";' +
-                'document.head.appendChild(script);'
-            }
-        )
+        download("../guest/trap-notification.js", function(content){
+            var code = 'var script = document.createElement("script");' +
+                    'script.innerHTML="eval(atob(\''+ btoa(content) + '\'))";' +
+                    'document.head.appendChild(script);';
+            webview.executeScript(
+                {
+                    code: code
+                },function(e){
+                    console.log(chrome.runtime.lastError);
+                }
+            );
+        });
+
 
         webview.executeScript(
             {
@@ -30,4 +36,15 @@
         window.open(e.targetUrl, '_blank');
     });
 
+    function replace(str, search, replace) {
+        return str.split(search).join(replace);
+    }
+
+    function download(url, callback) {
+        var oReq = new XMLHttpRequest();
+        //oReq.responseType = 'arraybuffer';
+        oReq.onload = function(){callback(oReq.response)};
+        oReq.open("get", url, true);
+        oReq.send();
+    }
 }());
