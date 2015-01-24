@@ -34,8 +34,8 @@
     }
 
     function tomorrow() {
-        //return new Date().getTime() + 24 * 60 * 60 * 1000;
-        return new Date().getTime() + 15000;
+        return new Date().getTime() + 24 * 60 * 60 * 1000; //1 day
+        //return new Date().getTime() + 15000;
     }
 
     function bindEvents() {
