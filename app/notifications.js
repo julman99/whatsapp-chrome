@@ -20,7 +20,7 @@
 
                 setTimeout(function() {
                     notification.close();
-                }, 5000);
+                }, 9000);
 
                 chrome.app.window.current().drawAttention();
             } else {
