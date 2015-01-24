@@ -35,3 +35,9 @@ webview.addEventListener('contentload', function(e) {
 webview.addEventListener('newwindow', function(e) {
     window.open(e.targetUrl,'_blank');
 });
+
+
+//Tracking
+var service = analytics.getService('whatsapp');
+var tracker = service.getTracker('UA-58879588-3');
+tracker.sendAppView('MainView');
