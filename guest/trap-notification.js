@@ -2,26 +2,39 @@ console.log('Loaded Notification trapper');
 (function() {
     var source = null;
     var origin = null;
+    var ids = 0;
+    var store = {};
 
     //Initialize source and origin for notification trapping
     window.addEventListener('message', function(e){
-        console.log("Got handshake from " + e.origin);
-        source = e.source;
-        origin = e.origin;
-        e.source.postMessage({type:'init'}, origin);
+        var msg = e.data;
+        if(msg.type == 'handshake') {
+            console.log("Got handshake from " + e.origin);
+            source = e.source;
+            origin = e.origin;
+            e.source.postMessage({type: 'init'}, origin);
+        } else if (msg.type == 'click') {
+            var notif = store[msg.id];
+            if(notif != null) {
+                notif.onclick();
+                delete store[msg.id];
+            }
+        }
     });
 
     window.Notification = function (a, b) {
+        var id = ++ids;
+        store[id] = this;
         if (source != null) {
             if(b.icon != null) {
                 download(b.icon, function(data){
                     var blb = new Blob([data], {type: 'image/png'});
                     var url = (window.URL || window.webkitURL).createObjectURL(blb);
                     b.icon = url;
-                    forwardNotif(a, b);
+                    forwardNotif(a, b, id);
                 });
             } else {
-                forwardNotif(a, b);
+                forwardNotif(a, b, id);
             }
             console.log('Notification trapped', a, b);
         } else {
@@ -35,8 +48,8 @@ console.log('Loaded Notification trapper');
         console.log('req per');
     }
 
-    function forwardNotif(a, b) {
-        source.postMessage({type: 'notif', conversation: a, data: b}, origin);
+    function forwardNotif(a, b, id) {
+        source.postMessage({type: 'notif', conversation: a, data: b, id: id}, origin);
     }
 
     function download(url, callback) {

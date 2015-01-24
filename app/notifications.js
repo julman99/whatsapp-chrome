@@ -3,17 +3,27 @@
 
     //Trap notifications
     var interval = setInterval(function () {
-        webview.contentWindow.postMessage("handshake", "*");
+        webview.contentWindow.postMessage({type: 'handshake'}, "*");
     }, 1000);
 
     addEventListener('message', function(e) {
         var msg = e.data;
         if(msg.type == 'notif') {
             if (!document.hasFocus()) {
-                new Notification(msg.conversation, msg.data);
-                appWin.drawAttention();
+                var notification = new Notification(msg.conversation, msg.data);
+
+                notification.addEventListener('click', function() {
+                    webview.contentWindow.postMessage({type: 'click', id: msg.id}, "*");
+                    chrome.app.window.current().show(true);
+                });
+
+                setTimeout(function() {
+                    notification.close();
+                }, 5000);
+
+                chrome.app.window.current().drawAttention();
             } else {
-                appWin.clearAttention();
+                chrome.app.window.current().clearAttention();
             }
         } else if (msg.type == 'init') {
             clearInterval(interval);
