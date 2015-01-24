@@ -12,46 +12,6 @@
 (function(n,t){n.fn.watch=function(i){function u(t,i,u){t.each(function(){var i=n(this),t;window.MutationObserver?(t=i.data("__watcherObserver"),t==null&&(t=new MutationObserver(u.fnc),i.data("__watcherObserver",t)),t.observe(this,{attributes:!0,subtree:r.watchChildren,childList:r.watchChildren,characterData:!0})):u.intervalId=setInterval(u.fnc,r.interval)})}function f(i,r,f){var s=n(this),e=s.data(i),a,l,o,c,h;if(e&&(a=this,e.func)){for(l=!1,o=0,o;o<e.props.length;o++)if((c=e.props[o],h="",h=c.startsWith("attr_")?s.attr(c.replace("attr_","")):s.css(c),h!=t)&&e.vals[o]!=h){e.vals[o]=h;l=!0;break}l&&(s.unwatch(i),e.func.call(a,e,o,r,f),u(s,i,e))}}var r=n.extend({properties:null,interval:100,id:"_watcher",watchChildren:!1,callback:null},i);return this.each(function(){var e=this,i=n(this),o=function(n,t){f.call(e,r.id,n,t)},t={id:r.id,props:r.properties.split(","),vals:[r.properties.split(",").length],func:r.callback,fnc:o,origProps:r.properties,interval:r.interval,intervalId:null};n.each(t.props,function(n){t.vals[n]=t.props[n].startsWith("attr_")?i.attr(t.props[n].replace("attr_","")):i.css(t.props[n])});i.data(r.id,t);u(i,r.id,t)})};n.fn.unwatch=function(t){return this.each(function(){var i=n(this),u=i.data(t),r;try{window.MutationObserver?(r=i.data("__watcherObserver"),r&&(r.disconnect(),i.removeData("__watcherObserver"))):clearInterval(u.intervalId)}catch(f){}}),this};String.prototype.startsWith=function(n){return n===null||n===t?!1:n==this.substr(0,n.length)}})(jQuery,undefined);
 
 (function() {
-    //Handle conversation notifications
-    window.addEventListener('message', function(e){
-        var prevNotifs = null;
-
-        console.log("Got handshake from " + e.origin);
-
-        setInterval(function(){
-            var chatsWithNotification = $('.unread-count').parents('.chat-body');
-
-            var notifs = {};
-            var shouldNotify = false;
-
-            chatsWithNotification.each(function(i,o){
-                var title = $(o).find('.chat-title').text();
-                var count = $(o).find('.unread-count').text();
-
-                if(prevNotifs != null) {
-                    if (prevNotifs[title] == null) {
-                        shouldNotify = true;
-                    } else {
-                        if (prevNotifs[title].count < count) {
-                            shouldNotify = true;
-                        }
-                    }
-                }
-
-                notifs[title] = {title: title, count: count};
-            });
-
-            prevNotifs = notifs;
-
-            if (shouldNotify) {
-                console.log('Detected new message');
-                e.source.postMessage("newMessage", e.origin);
-            }
-
-        }, 4000);
-
-    });
-
     //Detect when the app is ready to go
     $(document).livequery('#startup',function() {
         console.log('WhatsApp Loading...');
@@ -66,7 +26,6 @@
         });
 
     });
-
 
     //Hide the notification setting from menu
     $('body').livequery('.dropdown-right',function() {

@@ -38,14 +38,7 @@
                 //A more elegant fix for this would be doing jquery-livequery and listen for when the actual page is drawn
                 createFixWhiteScreenInterval(3000, appWin);
             }, 60000);
-        });
 
-        appWin.contentWindow.addEventListener('message', function(e) {
-            if (!appWin.contentWindow.document.hasFocus()) {
-                appWin.drawAttention();
-            } else {
-                appWin.clearAttention();
-            }
         });
     }
 
@@ -64,4 +57,5 @@
         webview.style.height = bounds.height  + 'px';
         webview.style.width = bounds.width + '.0' + variance + 'px';
     }
+
 }());
