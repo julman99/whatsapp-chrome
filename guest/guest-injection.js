@@ -24,6 +24,7 @@
         });
 
         $(document).on('conversation-changed', function(){
+            console.log("Hide");
             $('.icon-ptt').css('opacity','0');
             $('.icon-ptt').hide();
             $('.block-compose').css('margin-right','-50px')

@@ -14,6 +14,7 @@
 
                 notification.addEventListener('click', function() {
                     webview.contentWindow.postMessage({type: 'click', id: msg.id}, "*");
+                    chrome.app.window.current().clearAttention();
                     chrome.app.window.current().show(true);
                 });
 
