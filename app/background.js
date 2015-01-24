@@ -1,5 +1,8 @@
 (function() {
-    chrome.app.runtime.onLaunched.addListener(function() {
+    chrome.app.runtime.onLaunched.addListener(start);
+    chrome.runtime.onInstalled.addListener(start);
+
+    function start() {
         chrome.app.window.create('views/window.html',
             {
                 'bounds': {
@@ -10,7 +13,7 @@
             },
             onWindowCreated
         );
-    });
+    }
 
     function onWindowCreated(appWin) {
 
