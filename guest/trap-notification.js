@@ -18,6 +18,8 @@ console.log('Loaded Notification trapper');
             if(notif != null) {
                 notif.onclick();
                 delete store[msg.id];
+
+                document.dispatchEvent(new document.defaultView.CustomEvent('conversation-changed'));
             }
         }
     });

@@ -20,6 +20,10 @@
 
         //Hide the voice message while we dont support it
         $(document).on('click', '.chatlist', function(){
+            $(document).trigger('conversation-changed');
+        });
+
+        $(document).on('conversation-changed', function(){
             $('.icon-ptt').css('opacity','0');
             $('.icon-ptt').hide();
             $('.block-compose').css('margin-right','-50px')
