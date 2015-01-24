@@ -24,9 +24,9 @@ console.log('Loaded Notification trapper');
     });
 
     window.Notification = function (a, b) {
-        var id = ++ids;
-        store[id] = this;
         if (source != null) {
+            var id = ++ids;
+            store[id] = this;
             if(b.icon != null) {
                 download(b.icon, function(data){
                     var blb = new Blob([data], {type: 'image/png'});
@@ -38,6 +38,11 @@ console.log('Loaded Notification trapper');
                 forwardNotif(a, b, id);
             }
             console.log('Notification trapped', a, b);
+
+            //Make sure we delete the notifications after 10min so they dont stay forever in the cache
+            setTimeout(function(){
+                delete store[id];
+            },10 * 60 * 1000);
         } else {
             console.log('Notification trapped but not bubbled');
         }
