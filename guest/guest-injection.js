@@ -26,18 +26,4 @@
         });
 
     });
-
-    //Hide the notification setting from menu
-    $('body').livequery('.dropdown-right',function() {
-        var element = this;
-
-        var interval = setInterval(function(){
-            $(element).find('ul li a').slice(1,2).hide();
-        }, 20);
-
-        setTimeout(function(){
-            clearInterval(interval);
-        },5000);
-
-    });
 }());
