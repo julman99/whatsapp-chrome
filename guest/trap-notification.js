@@ -16,10 +16,9 @@ console.log('Loaded Notification trapper');
         } else if (msg.type == 'click') {
             var notif = store[msg.id];
             if(notif != null) {
-                notif.onclick();
                 delete store[msg.id];
-
-                document.dispatchEvent(new document.defaultView.CustomEvent('conversation-changed'));
+                dispatchConversationChanged();
+                notif.onclick();
             }
         }
     });
@@ -60,6 +59,12 @@ console.log('Loaded Notification trapper');
         oReq.onload = function(){callback(oReq.response)};
         oReq.open("get", url, true);
         oReq.send();
+    }
+
+    function dispatchConversationChanged() {
+        setTimeout(function() {
+            document.dispatchEvent(new document.defaultView.CustomEvent('conversation-changed'));
+        },0);
     }
 
 }());
