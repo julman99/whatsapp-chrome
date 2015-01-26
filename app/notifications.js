@@ -10,7 +10,25 @@
 
     var webview = document.querySelector('webview');
 
-    //Trap notifications
+    //Inject the notification trapper
+    webview.addEventListener('contentload', function (e) {
+        console.log('Starting poller');
+
+        download("../guest/trap-notification.js", function(content){
+            var code = 'var script = document.createElement("script");' +
+                'script.innerHTML="eval(atob(\''+ btoa(content) + '\'))";' +
+                'document.head.appendChild(script);';
+            webview.executeScript(
+                {
+                    code: code
+                },function(e){
+                    console.log(chrome.runtime.lastError);
+                }
+            );
+        });
+    });
+
+    //Initialize the notification handler. We will try to initialize every second until it replies
     var interval = setInterval(function () {
         webview.contentWindow.postMessage({type: 'handshake'}, "*");
     }, 1000);
@@ -44,4 +62,13 @@
     //Workarounds to avoid the drawAttention being stuck
     window.addEventListener('focus', clearAttention);
     window.addEventListener('mousedown', clearAttention);
+
+    function download(url, callback) {
+        var oReq = new XMLHttpRequest();
+        //oReq.responseType = 'arraybuffer';
+        oReq.onload = function(){callback(oReq.response)};
+        oReq.open("get", url, true);
+        oReq.send();
+    }
+
 }());
