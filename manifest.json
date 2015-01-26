@@ -16,7 +16,6 @@
     "videoCapture",
     "audioCapture",
     "fileSystem",
-    "https://www.google-analytics.com/",
     "storage",
     "alarms"
   ],
@@ -24,7 +23,7 @@
     "partitions": [
       {
         "name": "whatsapp-for-chrome",
-        "accessible_resources": ["a.js"]
+        "accessible_resources": ["*"]
       }
     ]
   }
