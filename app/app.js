@@ -1,13 +1,13 @@
 (function() {
     var webview = document.querySelector('webview');
 
+    //Accept any permission from the webview
     webview.addEventListener('permissionrequest', function (e) {
         console.log("webview requested " + e.permission);
         e.request.allow();
-        //appWin.drawAttention();
-        //chrome.browserAction.setBadgeText("12")
     });
 
+    //Init the web view
     webview.addEventListener('contentload', function (e) {
         console.log('Starting poller');
 
@@ -32,6 +32,7 @@
         )
     });
 
+    //Handle when url are clicked inside the webview
     webview.addEventListener('newwindow', function (e) {
         window.open(e.targetUrl, '_blank');
     });
