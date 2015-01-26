@@ -20,7 +20,7 @@
         // Initialize the webview size once on launch.
         setTimeout(function() {
             onBoundsChanged(appWin);
-        }, 0);
+        }, 10);
 
         appWin.contentWindow.addEventListener('load', function(){
 
