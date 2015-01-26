@@ -37,6 +37,11 @@
         window.open(e.targetUrl, '_blank');
     });
 
+    //Handle focus event and pass it down to the webview
+    window.addEventListener('focus',function(){
+        webview.focus();
+    });
+
     function replace(str, search, replace) {
         return str.split(search).join(replace);
     }
