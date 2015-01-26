@@ -1,5 +1,5 @@
 (function() {
-    var INTERVAL_MIN = 30;
+    var INTERVAL_MIN = 15;
 
     function showUpdateMessage() {
         document.getElementById('finishUpdateBar').style['display'] = '';
