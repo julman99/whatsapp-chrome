@@ -1,4 +1,13 @@
 (function() {
+
+    function drawAttention() {
+        chrome.app.window.current().drawAttention();
+    }
+
+    function clearAttention() {
+        chrome.app.window.current().clearAttention();
+    }
+
     var webview = document.querySelector('webview');
 
     //Trap notifications
@@ -22,13 +31,17 @@
                     notification.close();
                 }, 9000);
 
-                chrome.app.window.current().drawAttention();
+                drawAttention();
             } else {
-                chrome.app.window.current().clearAttention();
+                clearAttention();
             }
         } else if (msg.type == 'init') {
             clearInterval(interval);
             console.log("Notification trapper init");
         }
     });
+
+    //Workarounds to avoid the drawAttention being stuck
+    window.addEventListener('focus', clearAttention);
+    window.addEventListener('mousedown', clearAttention);
 }());
