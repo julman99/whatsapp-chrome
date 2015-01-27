@@ -1,3 +1,8 @@
+/**
+ * DEPRECATED
+ * This file is used to support 0.2.X or older versions
+ */
+
 (function() {
     console.log('Loaded Notification disable');
 
