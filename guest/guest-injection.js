@@ -17,5 +17,8 @@
         console.log('WhatsApp Loading...');
     },function() {
         console.log('WhatsApp Loaded');
+
+        $('.butterbar.butterbar-notification').hide();
     });
+
 }());
