@@ -17,7 +17,8 @@
     "audioCapture",
     "fileSystem",
     "storage",
-    "alarms"
+    "alarms",
+    "clipboardWrite"
   ],
   "webview": {
     "partitions": [

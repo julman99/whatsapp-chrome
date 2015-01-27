@@ -31,4 +31,57 @@
             }, delay);
         }
     });
+
+    //inject the copy download link item
+    $(document).livequery('.dropdown.dropdown-right', function(){
+        //Check if the structure of the html is the one we expect
+        if($(this).find('ul').length == 0) {
+            return;
+        }
+        if($(this).find('ul > li').length == 0) {
+            return;
+        }
+        if($(this).find('.menu-item.menu-shortcut').length == 0) {
+            return;
+        }
+
+        //If the html is valid, proceed injecting the menu item
+        var li = document.createElement('li');
+        li.className = "menu-item menu-shortcut";
+        li.style.opacity = 1;
+        li.style.display = "list-item";
+        li.style.transform = "translateY(0px)";
+
+        var a = document.createElement('a');
+        a.innerHTML = 'Copy download link';
+
+        var ul = $(this).find('ul').get(0);
+
+        li.appendChild(a);
+        ul.insertBefore(li, ul.firstElementChild);
+
+        $(li).click(function() {
+            copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan");
+            var $a = $(this).find('a');
+            var width = $a.width();
+            $a.text('Link copied!')
+            $a.width(width);
+            $a.css('font-weight', 'bold');
+            setTimeout(function(){document.body.click()}, 3000);
+        })
+
+    }, function() {
+
+    })
+
+
+    function copyTextToClipboard(text) {
+        var copyFrom = document.createElement("textarea");
+        copyFrom.textContent = text;
+        var body = document.getElementsByTagName('body')[0];
+        body.appendChild(copyFrom);
+        copyFrom.select();
+        document.execCommand('copy');
+        body.removeChild(copyFrom);
+    }
 }());
