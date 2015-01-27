@@ -4,14 +4,14 @@
         <title>WhatsApp for Chrome</title>
         <script src="../lib/google-analytics-bundle.js"></script>
     </head>
-    <body style="margin: 0px; padding: 0px">
+    <body style="margin: 0px; padding: 0px; position:absolute; left: 0px; top: 0px; right: 0px; bottom: 0px;">
         <div id="finishUpdateBar" style="display:none; position: absolute; width: 100%; background-color: #2a948a;padding: 10px; color: white;">
             There is a new version available!
             <a style="color:white" href="#" id="finishUpdate">Click here</a>
             to finish the update
         </div>
 
-        <webview id="whatsapp" src="https://web.whatsapp.com/" style="width: 800px; height:680px" partition="persist:whatsapp-for-chrome"></webview>
+        <webview id="whatsapp" src="https://web.whatsapp.com/" style="width:100%; height: 100%" partition="persist:whatsapp-for-chrome"></webview>
         <!--
         <iframe id="whatsapp" src="http://web.whatsapp.com/" style="width: 800px; height:680px"></iframe>
         -->

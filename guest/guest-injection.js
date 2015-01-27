@@ -17,5 +17,18 @@
         console.log('WhatsApp Loading...');
     },function() {
         console.log('WhatsApp Loaded');
+
+        //Fix the white window (overflow hack) many times just in case
+        fixOverflowHack(0);
+        fixOverflowHack(500);
+        fixOverflowHack(1000);
+        fixOverflowHack(2000);
+        fixOverflowHack(5000);
+
+        function fixOverflowHack(delay) {
+            setTimeout(function(){
+                var element = $('.app').css('overflow','visible');
+            }, delay);
+        }
     });
 }());
