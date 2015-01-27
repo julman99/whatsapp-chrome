@@ -48,7 +48,7 @@
         ul.insertBefore(li, ul.firstElementChild);
 
         $(li).click(function() {
-            copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan");
+            copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-download-link");
             setTimeout(function(){document.body.click()}, 0);
         })
 
