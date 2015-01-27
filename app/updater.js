@@ -18,5 +18,4 @@
     });
 
     console.log('Initialized update checker');
-
 }());

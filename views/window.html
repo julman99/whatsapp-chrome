@@ -3,10 +3,27 @@
     <head>
         <title>WhatsApp for Chrome</title>
         <script src="../lib/google-analytics-bundle.js"></script>
+        <style>
+            @font-face {
+                font-family: Roboto;
+                src: url(../font/Roboto-Regular.ttf);
+            }
+            #finishUpdateBar {
+                font-family: Roboto;
+                font-size:14px;
+                letter-spacing: 0.2px;
+                opacity: .95;
+                position: absolute;
+                width: 100%;
+                background-color: #2a948a;
+                padding: 15px;
+                color: white;
+            }
+        </style>
     </head>
     <body style="margin: 0px; padding: 0px; position:absolute; left: 0px; top: 0px; right: 0px; bottom: 0px;">
-        <div id="finishUpdateBar" style="display:none; position: absolute; width: 100%; background-color: #2a948a;padding: 10px; color: white;">
-            There is a new version available!
+        <div id="finishUpdateBar" style="display:none">
+            There is a new version of <b>WhatsApp for Chrome</b> available!
             <a style="color:white" href="#" id="finishUpdate">Click here</a>
             to finish the update
         </div>
