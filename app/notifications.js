@@ -26,12 +26,17 @@
                 }
             );
         });
-    });
 
-    //Initialize the notification handler. We will try to initialize every second until it replies
-    var interval = setInterval(function () {
-        webview.contentWindow.postMessage({type: 'handshake'}, "*");
-    }, 1000);
+        //Initialize the notification handler. We will try to initialize every second until it replies
+        var interval = setInterval(function () {
+            webview.contentWindow.postMessage({type: 'handshake'}, "*");
+        }, 1000);
+
+        //Hide the notification permission bar, in case something happens and we dont hide it
+        webview.insertCSS({
+            code: '.butterbar-notification {  display: none !important; }'
+        });
+    });
 
     addEventListener('message', function(e) {
         var msg = e.data;
