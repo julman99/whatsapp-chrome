@@ -2,7 +2,7 @@
   "name": "WhatsApp for Chrome",
   "short_name": "WhatsApp",
   "description": "Enjoy your WhatsApp for Web experience as a Chrome App",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "manifest_version": 2,
   "app": {
     "background": {
