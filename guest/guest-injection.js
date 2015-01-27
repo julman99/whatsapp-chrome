@@ -49,12 +49,7 @@
 
         $(li).click(function() {
             copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan");
-            var $a = $(this).find('a');
-            var width = $a.width();
-            $a.text('Link copied!')
-            $a.width(width);
-            $a.css('font-weight', 'bold');
-            setTimeout(function(){document.body.click()}, 3000);
+            setTimeout(function(){document.body.click()}, 0);
         })
 
     }, function() {
