@@ -81,7 +81,7 @@
 
         chrome.notifications.create(id, {
             type: 'basic',
-            title: 'Do you like WhatsApp for Chrome?',
+            title: 'Do you like WhatsChrome?',
             message: 'Click here and rate us 5 star',
             iconUrl: '../icon.png',
             isClickable: true,
