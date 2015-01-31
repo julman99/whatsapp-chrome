@@ -53,11 +53,11 @@
         //Notification bind
         chrome.notifications.onClicked.addListener(function(notificationId){
             cancelAlarmForever();
-            if(notificationId.indexOf('rate.') === 0) {
+            if(notificationId.indexOf('rate.rate.') === 0) {
                 window.open('https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan', '_blank');
-            } else if(notificationId.indexOf('share.fb.') === 0) {
+            } else if(notificationId.indexOf('rate.share.fb.') === 0) {
                 window.open('https://www.facebook.com/sharer/sharer.php?u=https://chrome.google.com/webstore/detail/whatschrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-fb');
-            } else if(notificationId.indexOf('share.link.') === 0) {
+            } else if(notificationId.indexOf('rate.share.link.') === 0) {
                 copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=copy-link-notification");
             }
         });
@@ -87,7 +87,7 @@
 
     function displayRateNotification(option) {
         if(option === 0) {
-            var id = 'rate.' + new Date().getTime();
+            var id = 'rate.rate.' + new Date().getTime();
             chrome.notifications.create(id, {
                 type: 'basic',
                 title: 'Do you like WhatsChrome?',
@@ -103,7 +103,7 @@
                 //nothing
             });
         } else if(option == 1) {
-            var id = 'share.fb.' + new Date().getTime();
+            var id = 'rate.share.fb.' + new Date().getTime();
             chrome.notifications.create(id, {
                 type: 'basic',
                 title: 'Do you like WhatsChrome?',
@@ -119,7 +119,7 @@
                 //nothing
             });
         } else if(option == 2) {
-            var id = 'share.link.' + new Date().getTime();
+            var id = 'rate.share.link.' + new Date().getTime();
             chrome.notifications.create(id, {
                 type: 'basic',
                 title: 'Do you like WhatsChrome?',
@@ -128,7 +128,7 @@
                 isClickable: true,
                 buttons: [{
                     title: 'Remind me tomorrow'
-                },, {
+                }, {
                     title: 'Don\'t remind me'
                 }]
             }, function (x) {
