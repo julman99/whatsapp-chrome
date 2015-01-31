@@ -147,6 +147,4 @@
         body.removeChild(copyFrom);
     }
 
-    window.displayRateNotification = displayRateNotification;
-    window.displayRandomNotification = displayRandomNotification;
 }());
