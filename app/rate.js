@@ -44,7 +44,7 @@
             if(alarm.name == ALARM_ID) {
                 isAlarmCanceledForever(function(canceled){
                     if(!canceled) {
-                        displayRateNotification();
+                        displayRandomNotification();
                     }
                 })
             }
@@ -52,9 +52,13 @@
 
         //Notification bind
         chrome.notifications.onClicked.addListener(function(notificationId){
+            cancelAlarmForever();
             if(notificationId.indexOf('rate.') === 0) {
-                cancelAlarmForever();
                 window.open('https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan', '_blank');
+            } else if(notificationId.indexOf('share.fb.') === 0) {
+                window.open('https://www.facebook.com/sharer/sharer.php?u=https://chrome.google.com/webstore/detail/whatschrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-fb');
+            } else if(notificationId.indexOf('share.link.') === 0) {
+                copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=copy-link-notification");
             }
         });
         chrome.notifications.onButtonClicked.addListener(function(notificationId, buttonIndex){
@@ -76,22 +80,73 @@
         });
     }
 
-    function displayRateNotification() {
-        var id = 'rate.' + new Date().getTime();
-
-        chrome.notifications.create(id, {
-            type: 'basic',
-            title: 'Do you like WhatsChrome?',
-            message: 'Click here and rate us 5 star',
-            iconUrl: '../icon.png',
-            isClickable: true,
-            buttons: [{
-                title: 'Remind me tomorrow'
-            }, {
-                title: 'Don\'t remind me'
-            }]
-        }, function (x) {
-            //nothing
-        });
+    function displayRandomNotification() {
+        var option = Math.round(Math.random() * 2);
+        displayRateNotification(option)
     }
+
+    function displayRateNotification(option) {
+        if(option === 0) {
+            var id = 'rate.' + new Date().getTime();
+            chrome.notifications.create(id, {
+                type: 'basic',
+                title: 'Do you like WhatsChrome?',
+                message: 'Click here and rate us 5 star',
+                iconUrl: '../img/icon-stars.png',
+                isClickable: true,
+                buttons: [{
+                    title: 'Remind me tomorrow'
+                }, {
+                    title: 'Don\'t remind me'
+                }]
+            }, function (x) {
+                //nothing
+            });
+        } else if(option == 1) {
+            var id = 'share.fb.' + new Date().getTime();
+            chrome.notifications.create(id, {
+                type: 'basic',
+                title: 'Do you like WhatsChrome?',
+                message: 'Click here to share it on Facebook',
+                iconUrl: '../img/icon-fb.png',
+                isClickable: true,
+                buttons: [{
+                    title: 'Remind me tomorrow'
+                }, {
+                    title: 'Don\'t remind me'
+                }]
+            }, function (x) {
+                //nothing
+            });
+        } else if(option == 2) {
+            var id = 'share.link.' + new Date().getTime();
+            chrome.notifications.create(id, {
+                type: 'basic',
+                title: 'Do you like WhatsChrome?',
+                message: 'Click here to copy the download link and share it',
+                iconUrl: '../img/icon-link.png',
+                isClickable: true,
+                buttons: [{
+                    title: 'Remind me tomorrow'
+                },, {
+                    title: 'Don\'t remind me'
+                }]
+            }, function (x) {
+                //nothing
+            });
+        }
+    }
+
+    function copyTextToClipboard(text) {
+        var copyFrom = document.createElement("textarea");
+        copyFrom.textContent = text;
+        var body = document.getElementsByTagName('body')[0];
+        body.appendChild(copyFrom);
+        copyFrom.select();
+        document.execCommand('copy');
+        body.removeChild(copyFrom);
+    }
+
+    window.displayRateNotification = displayRateNotification;
+    window.displayRandomNotification = displayRandomNotification;
 }());

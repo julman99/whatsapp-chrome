@@ -9,7 +9,7 @@
       "scripts": ["app/background.js"]
     }
   },
-  "icons": { "128": "icon.png" },
+  "icons": { "128": "img/icon.png" },
   "permissions": [
     "webview",
     "notifications",
