@@ -40,7 +40,7 @@
     //Workarounds to avoid the drawAttention being stuck
     window.addEventListener('focus', clearAttention);
     window.addEventListener('mousedown', clearAttention);
-
+    window.addEventListener('keydown', clearAttention);
 
     function initTrapper() {
         //Initialize the notification handler. We will try to initialize every second until it replies
