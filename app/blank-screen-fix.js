@@ -5,7 +5,7 @@
     var POLL_TIMEOUT = 5 * 60 * 1000;
 
     webview.addEventListener('contentload', function (e) {
-        startPolling(POLL_INTERVAL);
+        var interval = startPolling(POLL_INTERVAL);
 
         //Failsafe, if the page has not loaded in 5 minutes, stop polling
         setTimeout(function(){
