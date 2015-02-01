@@ -1,11 +1,19 @@
 (function() {
 
+    var currentAttention = false;
+
     function drawAttention() {
-        chrome.app.window.current().drawAttention();
+        if (currentAttention == false) {
+            currentAttention = true;
+            chrome.app.window.current().drawAttention();
+        }
     }
 
     function clearAttention() {
-        chrome.app.window.current().clearAttention();
+        if(currentAttention == true) {
+            currentAttention = false;
+            chrome.app.window.current().clearAttention();
+        }
     }
 
     var webview = document.querySelector('webview');
@@ -28,6 +36,7 @@
         });
 
         initTrapper();
+        ensureNewMessagesAttention();
 
         //Hide the notification permission bar, in case something happens and we dont hide it
         webview.insertCSS({
@@ -73,6 +82,21 @@
                 console.log("Notification trapper init");
             }
         });
+    }
+
+    function ensureNewMessagesAttention() {
+        if(currentAttention) {
+            setInterval(function () {
+                webview.executeScript({
+                    code: "document.querySelectorAll('.unread-count').length"
+                }, function (r) {
+                    var count = r[0];
+                    if (count == 0) {
+                        clearAttention();
+                    }
+                });
+            }, 3000);
+        }
     }
 
     function download(url, callback) {
