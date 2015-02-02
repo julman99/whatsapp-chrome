@@ -123,7 +123,7 @@
             chrome.notifications.create(id, {
                 type: 'basic',
                 title: 'Do you like WhatsChrome?',
-                message: 'Click here to copy the download link and share it',
+                message: 'Click here to copy the Chrome Store link and share it',
                 iconUrl: '../img/icon-link.png',
                 isClickable: true,
                 buttons: [{
