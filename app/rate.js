@@ -97,7 +97,7 @@
                 buttons: [{
                     title: 'Remind me tomorrow'
                 }, {
-                    title: 'Don\'t remind me'
+                    title: 'Never show this again'
                 }]
             }, function (x) {
                 //nothing
@@ -113,7 +113,7 @@
                 buttons: [{
                     title: 'Remind me tomorrow'
                 }, {
-                    title: 'Don\'t remind me'
+                    title: 'Never show this again'
                 }]
             }, function (x) {
                 //nothing
@@ -129,7 +129,7 @@
                 buttons: [{
                     title: 'Remind me tomorrow'
                 }, {
-                    title: 'Don\'t remind me'
+                    title: 'Never show this again'
                 }]
             }, function (x) {
                 //nothing
