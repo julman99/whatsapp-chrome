@@ -69,6 +69,10 @@
                         chrome.app.window.current().show(true);
                     });
 
+                    notification.addEventListener('close', function() {
+                        clearAttention();
+                    });
+
                     setTimeout(function() {
                         notification.close();
                     }, 9000);
