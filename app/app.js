@@ -19,7 +19,13 @@
             {
                 file: 'guest/share-menu.js'
             }
-        )
+        );
+
+        webview.executeScript(
+            {
+                file: 'guest/emoji-replace.js'
+            }
+        );
     });
 
     //Handle when url are clicked inside the webview
