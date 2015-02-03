@@ -2,7 +2,7 @@
   "name": "WhatsChrome",
   "short_name": "WhatsChrome",
   "description": "__MSG_appDesc__",
-  "version": "0.5.6",
+  "version": "0.5.7",
   "manifest_version": 2,
   "app": {
     "background": {
