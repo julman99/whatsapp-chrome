@@ -20,27 +20,10 @@
     });
 
 
-    var messages = [
-        {
-            msg: 'Copy download link',
-            utm: 'share-download-link-1'
-        },{
-            msg: 'Share download link',
-            utm: 'share-download-link-2'
-        },{
-            msg: 'Copy Chrome store link',
-            utm: 'share-download-link-3'
-        },{
-            msg: 'Share Chrome store link',
-            utm: 'share-download-link-4'
-        }
-    ];
-
-    var messageNumber = localStorage.getItem('whatsapp.chrome.share.link.msg');
-    if(messageNumber == null) {
-        messageNumber = Math.round(Math.random() * (messages.length - 1));
-        localStorage.setItem('whatsapp.chrome.share.link.msg', messageNumber);
-    }
+    var message = {
+        msg: 'Copy Chrome store link',
+        utm: 'share-download-link-3'
+    };
 
     //inject the copy download link item
     $(document).livequery('.dropdown.dropdown-right', function(){
@@ -63,7 +46,7 @@
         li.style.transform = "translateY(0px)";
 
         var a = document.createElement('a');
-        a.innerHTML = messages[messageNumber].msg;
+        a.innerHTML = message.msg;
 
         var ul = $(this).find('ul').get(0);
 
@@ -71,7 +54,7 @@
         ul.insertBefore(li, ul.firstElementChild);
 
         $(li).click(function() {
-            copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=" + messages[messageNumber].utm);
+            copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=" + message.utm);
             setTimeout(function(){document.body.click()}, 0);
         })
 
