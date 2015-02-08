@@ -44,7 +44,7 @@
         button.className = "icon icon-chat";
         button.innerText = "Share WhatsChrome";
         button.style.backgroundImage = "url(" + menuIconSrc + ")";
-        button.style.backgroundSize = "100% 100%";
+        button.style.backgroundSize = "90% 90%";
         button.style.setProperty('background-position', "0px 0px", "important");
 
         var span = document.createElement('span');
