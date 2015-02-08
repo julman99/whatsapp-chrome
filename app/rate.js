@@ -58,7 +58,7 @@
             } else if(notificationId.indexOf('rate.share.fb.') === 0) {
                 window.open('https://www.facebook.com/sharer/sharer.php?u=https://chrome.google.com/webstore/detail/whatschrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-fb');
             } else if(notificationId.indexOf('rate.share.link.') === 0) {
-                copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=copy-link-notification");
+                Utils.copyTextToClipboard("https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=copy-link-notification");
             }
         });
         chrome.notifications.onButtonClicked.addListener(function(notificationId, buttonIndex){
@@ -135,16 +135,6 @@
                 //nothing
             });
         }
-    }
-
-    function copyTextToClipboard(text) {
-        var copyFrom = document.createElement("textarea");
-        copyFrom.textContent = text;
-        var body = document.getElementsByTagName('body')[0];
-        body.appendChild(copyFrom);
-        copyFrom.select();
-        document.execCommand('copy');
-        body.removeChild(copyFrom);
     }
 
 }());
