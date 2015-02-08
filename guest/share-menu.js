@@ -24,7 +24,7 @@
             src: twitterIconSrc,
             description: 'Share on Twitter',
             handler: function(){
-                window.open('https://twitter.com/home?status=Now%20you%20can%20use%20WhatsApp%20in%20Chrome!%20https://chrome.google.com/webstore/detail/whatschrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-menu-twitter');
+                window.open('https://twitter.com/home?status=Now%20you%20can%20use%20WhatsApp%20in%20your%20computer%20with%20%23whatschrome!%20http://goo.gl/6vYqtI');
             }
         },
         {

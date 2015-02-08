@@ -137,4 +137,6 @@
         }
     }
 
+    window.displayRateNotification = displayRateNotification;
+    window.displayRandomNotification = displayRandomNotification;
 }());
