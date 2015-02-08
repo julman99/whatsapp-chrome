@@ -56,7 +56,7 @@
 
         //Handler to close menu
         $(document).on('mousedown', function(e) {
-            $('.whatschrome-share-menu').hide();
+            $('.whatschrome-share-menu').remove();
         });
     }
 
@@ -66,6 +66,8 @@
         var div = document.createElement('div');
         div.className = "dropdown dropdown-right whatschrome-share-menu";
         div.style.width = "170px";
+        div.style.transformOrigin = "right top 0px";
+        div.style.whiteSpace= 'nowrap';
 
         var divText =  document.createElement('div');
         divText.style.textAlign = 'center';
@@ -95,7 +97,10 @@
 
             div.appendChild($img.get(0));
         }
+
+        $(div).hide();
         parent.appendChild(div);
+        $(div).show(300);
     }
 
     function copyTextToClipboard(text) {
