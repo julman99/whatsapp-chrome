@@ -85,6 +85,7 @@
         div.style.textAlign = "center";
         div.style.transformOrigin = "right top 0px";
         div.style.whiteSpace= 'nowrap';
+        div.style.right = '-15px';
 
         var divText =  document.createElement('div');
         divText.style.textAlign = 'center';
