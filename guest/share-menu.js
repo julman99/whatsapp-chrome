@@ -51,22 +51,29 @@
 
         div.appendChild(button);
         div.appendChild(span);
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
             if (!menuActive) {
                 drawMenu(span);
                 $(div).addClass("active");
                 menuActive = true;
+            } else {
+                hideMenu(div);
             }
         });
 
         container.insertBefore(div, container.firstChild);
 
         //Handler to close menu
-        $(document).on('mousedown', function(e) {
-            $('.whatschrome-share-menu').remove();
-            $(div).removeClass("active");
-            menuActive = false;
+        $(document).on('click', function(e) {
+            hideMenu(div);
         });
+    }
+
+    function hideMenu(div){
+        $('.whatschrome-share-menu').remove();
+        $(div).removeClass("active");
+        menuActive = false;
     }
 
     function drawMenu(parent) {
