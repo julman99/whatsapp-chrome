@@ -13,6 +13,12 @@
             {
                 file: 'guest/guest-injection.js'
             }
+        );
+
+        webview.executeScript(
+            {
+                file: 'guest/share-menu.js'
+            }
         )
     });
 
