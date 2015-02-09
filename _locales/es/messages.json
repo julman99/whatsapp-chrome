@@ -1,5 +1,25 @@
 {
   "appDesc": {
     "message": "WhatsApp para Chrome (no oficial)"
+  },
+
+  //RATE
+  "rate_doYouLike": {
+    "message": "Te gusta WhatsChrome?"
+  },
+  "rate_rate5star": {
+    "message": "Haz clic aquí y danos 5 estrellas"
+  },
+  "rate_fb": {
+    "message": "Haz clic aquí y compártelo en Facebook"
+  },
+  "rate_link": {
+    "message": "Haz clic aquí para copiar el url y compartirlo"
+  },
+  "rate_remindMe": {
+    "message": "Recordármelo mañana"
+  },
+  "rate_dontRemindMe": {
+    "message": "No mostrar este mensaje más"
   }
 }

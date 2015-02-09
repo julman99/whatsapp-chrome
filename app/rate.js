@@ -86,55 +86,34 @@
     }
 
     function displayRateNotification(option) {
+        var notification = {
+            type: 'basic',
+            isClickable: true,
+            buttons: [{
+                title: chrome.i18n.getMessage("rate_remindMe")
+            }, {
+                title: chrome.i18n.getMessage("rate_dontRemindMe")
+            }]
+        };
         if(option === 0) {
             var id = 'rate.rate.' + new Date().getTime();
-            chrome.notifications.create(id, {
-                type: 'basic',
-                title: 'Do you like WhatsChrome?',
-                message: 'Click here and rate us 5 star',
-                iconUrl: '../img/icon-stars.png',
-                isClickable: true,
-                buttons: [{
-                    title: 'Remind me tomorrow'
-                }, {
-                    title: 'Never show this again'
-                }]
-            }, function (x) {
-                //nothing
-            });
+            notification.title = chrome.i18n.getMessage("rate_doYouLike");
+            notification.message = chrome.i18n.getMessage("rate_rate5star");
+            notification.iconUrl = '../img/icon-stars.png';
         } else if(option == 1) {
             var id = 'rate.share.fb.' + new Date().getTime();
-            chrome.notifications.create(id, {
-                type: 'basic',
-                title: 'Do you like WhatsChrome?',
-                message: 'Click here to share it on Facebook',
-                iconUrl: '../img/icon-fb.png',
-                isClickable: true,
-                buttons: [{
-                    title: 'Remind me tomorrow'
-                }, {
-                    title: 'Never show this again'
-                }]
-            }, function (x) {
-                //nothing
-            });
+            notification.title = chrome.i18n.getMessage("rate_doYouLike");
+            notification.message = chrome.i18n.getMessage("rate_fb");
+            notification.iconUrl = '../img/icon-fb.png';
         } else if(option == 2) {
             var id = 'rate.share.link.' + new Date().getTime();
-            chrome.notifications.create(id, {
-                type: 'basic',
-                title: 'Do you like WhatsChrome?',
-                message: 'Click here to copy the Chrome Store link and share it',
-                iconUrl: '../img/icon-link.png',
-                isClickable: true,
-                buttons: [{
-                    title: 'Remind me tomorrow'
-                }, {
-                    title: 'Never show this again'
-                }]
-            }, function (x) {
-                //nothing
-            });
+            notification.title = chrome.i18n.getMessage("rate_doYouLike");
+            notification.message = chrome.i18n.getMessage("rate_link");
+            notification.iconUrl = '../img/icon-link.png';
         }
+        chrome.notifications.create(id, notification, function (x) {
+            //nothing
+        });
     }
 
     window.displayRateNotification = displayRateNotification;

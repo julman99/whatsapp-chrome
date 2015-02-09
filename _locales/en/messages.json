@@ -1,5 +1,26 @@
 {
   "appDesc": {
     "message": "Unofficial WhatsApp for Chrome"
+  },
+
+
+  //RATE
+  "rate_doYouLike": {
+    "message": "Do you like WhatsChrome?"
+  },
+  "rate_rate5star": {
+    "message": "Click here and rate us 5 star"
+  },
+  "rate_fb": {
+    "message": "Click here to share it on Facebook"
+  },
+  "rate_link": {
+    "message": "Click here to copy the Chrome Store url and share it"
+  },
+  "rate_remindMe": {
+    "message": "Remind me tomorrow"
+  },
+  "rate_dontRemindMe": {
+    "message": "Never show this again"
   }
 }
