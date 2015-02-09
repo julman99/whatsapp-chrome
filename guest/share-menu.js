@@ -15,21 +15,22 @@
     var icons = [
         {
             src: fbIconSrc,
-            description: 'Share on Facebook',
+            description: chrome.i18n.getMessage('share_fb'),
             handler: function(){
                 window.open('https://www.facebook.com/sharer/sharer.php?u=https://chrome.google.com/webstore/detail/whatschrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-menu-fb');
             }
         },
         {
             src: twitterIconSrc,
-            description: 'Share on Twitter',
-            handler: function(){
-                window.open('https://twitter.com/home?status=Now%20you%20can%20use%20WhatsApp%20in%20your%20computer%20with%20%23whatschrome!%20http://goo.gl/6vYqtI');
+            description: chrome.i18n.getMessage('share_twitter'),
+            handler: function() {
+                var encoded = encodeURIComponent(chrome.i18n.getMessage('share_twitter_payload'));
+                window.open('https://twitter.com/home?status=' + encoded);
             }
         },
         {
             src: linkIconSrc,
-            description: 'Copy Chrome Store url',
+            description: chrome.i18n.getMessage('share_link'),
             handler: function(){
                 copyTextToClipboard('https://chrome.google.com/webstore/detail/whatsapp-for-chrome/bgkodfmeijboinjdegggmkbkjfiagaan?utm_source=share-menu-link');
             }
@@ -77,7 +78,7 @@
     }
 
     function drawMenu(parent) {
-        var shareText = "Share this app with your friends";
+        var shareText = chrome.i18n.getMessage('share_menu_title');
 
         var div = document.createElement('div');
         div.className = "dropdown dropdown-right whatschrome-share-menu";

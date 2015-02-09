@@ -17,9 +17,26 @@
     "message": "Haz clic aquí para copiar el url y compartirlo"
   },
   "rate_remindMe": {
-    "message": "Recordármelo mañana"
+    "message": "Recordarme mañana"
   },
   "rate_dontRemindMe": {
     "message": "No mostrar este mensaje más"
+  },
+
+  //SHARE MENU
+  "share_menu_title": {
+    "message": "Comparte WhatsChrome con amigos"
+  },
+  "share_fb": {
+    "message": "Compartir en Facebook"
+  },
+  "share_twitter": {
+    "message": "Compartir en Twitter"
+  },
+  "share_twitter_payload": {
+    "message": "¡Ya puedes usar WhatsApp en tu computador con #whatschrome! http://goo.gl/6vYqtI"
+  },
+  "share_link": {
+    "message": "Copiar el enláce de descarga"
   }
 }
