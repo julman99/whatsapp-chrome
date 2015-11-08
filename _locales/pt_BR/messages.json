@@ -1,5 +1,43 @@
 {
   "appDesc": {
     "message": "WhatsApp para Chrome (não oficial)"
+  },
+
+  //RATE
+  "rate_doYouLike": {
+    "message": "Você gosta WhatsChrome?"
+  },
+  "rate_rate5star": {
+    "message": "Clique aqui e taxa de nós 5 estrelas"
+  },
+  "rate_fb": {
+    "message": "Clique aqui para compartilhá-la no Facebook"
+  },
+  "rate_link": {
+    "message": "Clique aqui para copiar o url Chrome Store e compartilhá-lo"
+  },
+  "rate_remindMe": {
+    "message": "Lembre-me de amanhã"
+  },
+  "rate_dontRemindMe": {
+    "message": "Nunca mostrar novamente"
+  },
+
+
+  //SHARE MENU
+  "share_menu_title": {
+    "message": "Compartilhe este aplicativo com os seus amigos"
+  },
+  "share_fb": {
+    "message": "Compartilhar no Facebook"
+  },
+  "share_twitter": {
+    "message": "Compartilhar no Twitter"
+  },
+  "share_twitter_payload": {
+    "message": "Agora você pode usar o WhatsApp no seu computador com #whatschrome ! http://goo.gl/6vYqtI"
+  },
+  "share_link": {
+    "message": "Url cópia Chrome Store"
   }
 }
