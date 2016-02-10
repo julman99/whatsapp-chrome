@@ -6,13 +6,13 @@
     "message": "Aimez-vous WhatsChrome?"
   },
   "rate_rate5star": {
-    "message": "Cliquez ici et notez avec 5 étoiles"
+    "message": "Cliquer ici et notez avec 5 étoiles"
   },
   "rate_fb": {
-    "message": "Cliquez ici pour le partager sur Facebook"
+    "message": "Cliquer ici pour le partager sur Facebook"
   },
   "rate_link": {
-    "message": "Cliquez ici pour copier l'addresse du Chrome Store et la partager"
+    "message": "Cliquer ici pour copier l'addresse du Chrome Store et la partager"
   },
   "rate_remindMe": {
     "message": "Me le rappeller demain"
@@ -21,18 +21,18 @@
     "message": "Ne pas réafficher"
   },
   "share_menu_title": {
-    "message": "Partagez cette application avec vos amis"
+    "message": "Partager cette application avec vos amis"
   },
   "share_fb": {
-    "message": "Partagez sur Facebook"
+    "message": "Partager sur Facebook"
   },
   "share_twitter": {
-    "message": "Partagez sur Twitter"
+    "message": "Partager sur Twitter"
   },
   "share_twitter_payload": {
     "message": "Vous pouvez désormais utiliser WhatsApp sur votre ordinateur avec #whatschrome! http://goo.gl/6vYqtI"
   },
   "share_link": {
-    "message": "Copiez l'addresse du Chrome Store"
+    "message": "Copier l'addresse du Chrome Store"
   }
 }
