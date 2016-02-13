@@ -2,6 +2,8 @@
   "appDesc": {
     "message": "WhatsApp non-officiel pour Chrome"
   },
+
+  //RATE
   "rate_doYouLike": {
     "message": "Aimez-vous WhatsChrome?"
   },
@@ -20,6 +22,8 @@
   "rate_dontRemindMe": {
     "message": "Ne pas réafficher"
   },
+
+  //SHARE MENU
   "share_menu_title": {
     "message": "Partager cette application avec vos amis"
   },
